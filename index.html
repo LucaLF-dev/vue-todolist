@@ -9,9 +9,21 @@
 <body>
 
     <div id="app">
-
+        <div class="container">
+            <div>
+                <input type="text" placeholder="scrivi nuova task" v-model="newtask">
+                <button>AGGIUNGI TASK</button>
+            </div>
+            <div class="tasks">
+                <ul>
+                    <li :class="{'line-trought': todos.done }" v-for="(tasks, index) in todos" :key="index">
+                     {{tasks.text}}
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
-    
+
     <script src="https://unpkg.com/vue@3"></script>
     <script src='./js/app.js'></script>
 </body>
