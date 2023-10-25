@@ -19,7 +19,7 @@
                 <ul>
                     <li :class="{'line-trought': task.done }" v-for="(task, index) in todos" :key="index">
                      {{task.text}}
-                     <i class="fa-solid fa-circle-xmark"></i>
+                     <i @click="removeTask(task)" class="fa-solid fa-circle-xmark"></i>
                     </li>
                 </ul>
             </div>

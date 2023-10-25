@@ -22,8 +22,10 @@ createApp({
 
         }
     },
-    methods(){
-
+    methods: {
+       removeTask(task) {
+         this.todos.splice(task,1)
+       }
 
     },
     mounted(){
