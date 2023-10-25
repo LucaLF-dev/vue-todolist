@@ -11,15 +11,18 @@
 
     <div id="app">
         <div class="container">
-            <div>
+            <div class="new-task">
                 <input  @keyup.enter="addTask()" type="text" placeholder="scrivi nuova task" v-model="newTask">
-                <button @click="addTask()">AGGIUNGI TASK</button>
+                <button @click.stop="addTask()">AGGIUNGI TASK</button>
+                <div v-if="error"  class="error">
+                    <small>Devi inserire minimo 3 caratteri</small>
+                </div>
             </div>
-            <div class="tasks">
+            <div class="tasks-wrapper">
                 <ul>
-                    <li :class="{'line-trought': task.done }" v-for="(task, index) in todos" :key="index">
+                    <li :class="{'line-trought': task.done }" v-for="(task, index) in todos" :key="index" @click="taskCheck(index)">
                      {{task.text}}
-                     <i @click="removeTask(task)" class="fa-solid fa-circle-xmark"></i>
+                     <i @click.stop="removeTask(task)" class="fa-solid fa-circle-xmark"></i>
                     </li>
                 </ul>
             </div>
