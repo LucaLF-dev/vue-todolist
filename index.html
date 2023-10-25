@@ -12,7 +12,7 @@
     <div id="app">
         <div class="container">
             <div>
-                <input type="text" placeholder="scrivi nuova task" v-model="newTask">
+                <input  @keyup.enter="addTask()" type="text" placeholder="scrivi nuova task" v-model="newTask">
                 <button @click="addTask()">AGGIUNGI TASK</button>
             </div>
             <div class="tasks">
