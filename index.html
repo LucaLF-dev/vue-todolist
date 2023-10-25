@@ -5,19 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vue To Do List</title>
     <link rel="stylesheet" href="./css/app.css">
+    <script src="https://kit.fontawesome.com/a14ed7ec88.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
     <div id="app">
         <div class="container">
             <div>
-                <input type="text" placeholder="scrivi nuova task" v-model="newtask">
+                <input type="text" placeholder="scrivi nuova task" v-model="newTask">
                 <button>AGGIUNGI TASK</button>
             </div>
             <div class="tasks">
                 <ul>
-                    <li :class="{'line-trought': todos.done }" v-for="(tasks, index) in todos" :key="index">
-                     {{tasks.text}}
+                    <li :class="{'line-trought': task.done }" v-for="(task, index) in todos" :key="index">
+                     {{task.text}}
+                     <i class="fa-solid fa-circle-xmark"></i>
                     </li>
                 </ul>
             </div>
