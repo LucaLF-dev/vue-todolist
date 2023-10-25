@@ -25,6 +25,14 @@ createApp({
     methods: {
        removeTask(task) {
          this.todos.splice(task,1)
+       },
+
+       addTask() {
+        const newTodo = {
+            text : this.newTask,
+            done : false
+        }
+        this.todos.splice(0,0,newTodo)
        }
 
     },
