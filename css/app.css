@@ -1,4 +1,18 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-.line-trought{
+.container{
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.line-trought .text--task{
     text-decoration: line-through;
+}
+
+.list--tasks {
+    list-style: none;
 }

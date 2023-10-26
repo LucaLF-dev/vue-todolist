@@ -12,19 +12,22 @@
     <div id="app">
         <div class="container">
             <div class="new-task">
-                <input  @keyup.enter="addTask()" type="text" placeholder="scrivi nuova task" v-model="newTask">
+                <input  @keyup.enter="addTask()" type="text" placeholder="scrivi nuova task" v-model.trim="newTask">
                 <button @click.stop="addTask()">AGGIUNGI TASK</button>
                 <div v-if="error"  class="error">
-                    <small>Devi inserire minimo 3 caratteri</small>
+                    <small>Devi inserire minimo 5 caratteri</small>
                 </div>
             </div>
             <div class="tasks-wrapper">
-                <ul>
+                <ul class="list--tasks" v-if="todos.length > 0 ">
                     <li :class="{'line-trought': task.done }" v-for="(task, index) in todos" :key="index" @click="taskCheck(index)">
-                     {{task.text}}
-                     <i @click.stop="removeTask(task)" class="fa-solid fa-circle-xmark"></i>
+                     <span class="text--task">{{task.text}}</span>
+                     <i @click.stop="removeTask(index)" class="fa-solid fa-circle-xmark"></i>
                     </li>
+                   
                 </ul>
+                <span v-if="todos.length > 1"> ci sono {{todos.length}} tasks</span>
+                <span v-else>non ci sono task</span>
             </div>
         </div>
     </div>

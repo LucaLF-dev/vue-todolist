@@ -22,8 +22,8 @@ createApp({
 		};
 	},
 	methods: {
-		removeTask(task) {
-			this.todos.splice(task, 1);
+		removeTask(i) {
+			this.todos.splice(i, 1);
 		},
 
 		addTask() {
